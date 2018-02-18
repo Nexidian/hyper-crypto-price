@@ -161,6 +161,22 @@ const getCoinDetails = (name) => {
 };
 
 /**
+ * Update the current coin config when the hyper.js config has changed
+ */
+const updateConfig = () => {
+    let config = app.config.getConfig().hyperCryptoPrice.coins;
+
+    for (let coinName in hyperCoin.coinList) {
+        if (hyperCoin.coinList.hasOwnProperty(coinName)) {
+            if (config.indexOf(coinName) === -1) {
+                // Remove entry from the coin list if it is no longer in the hyper.js config array
+                delete hyperCoin.coinList[coinName];
+            }
+        }
+    }
+};
+
+/**
  * When this plugin loads we set up some defaults
  */
 exports.onRendererWindow = () => {
@@ -254,4 +270,14 @@ exports.decorateHyper = (Hyper, {React}) => {
             clearInterval(this.interval);
         }
     };
+};
+
+exports.middleware = (store) => (next) => (action) => {
+    switch (action.type) {
+        case 'CONFIG_RELOAD':
+            updateConfig();
+            break;
+    }
+
+    next(action);
 };
