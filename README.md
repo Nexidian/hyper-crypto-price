@@ -4,6 +4,9 @@
 
 > This idea was based of [hyper-statusline](https://github.com/henrikdahl/hyper-statusline/) plugin created by [henrikdahl](https://github.com/henrikdahl)
 
+![hyper-crypto-coin](https://imgur.com/vdWZ7bb)
+
+
 ## Install
 
 Add the following to your `~/.hyper.js` config.
