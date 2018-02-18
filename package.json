@@ -1,0 +1,28 @@
+{
+  "name": "hyper-crypto-price",
+  "version": "0.0.1",
+  "description": "Crypto price status for Hyper",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "nexidian/hyper-crypto-price",
+  "author": {
+    "name": "Luke Jennings",
+    "email": "lukejennings1710@gmail.com"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "hyper",
+    "hyper-theme",
+    "hyperterm",
+    "hyperterm-theme",
+    "hyper-crypto-price",
+    "statusline",
+    "crypto"
+  ],
+  "dependencies": {
+    "color": "^2.0.0",
+    "node-rest-client": "^3.1.0",
+  }
+}
