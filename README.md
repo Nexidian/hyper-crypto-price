@@ -4,7 +4,7 @@
 
 > This idea was based of [hyper-statusline](https://github.com/henrikdahl/hyper-statusline/) plugin created by [henrikdahl](https://github.com/henrikdahl)
 
-![hyper-crypto-coin](https://i.imgur.com/vdWZ7bb.png)
+![hyper-crypto-coin](https://i.imgur.com/21qA4ad.png)
 
 
 ## Install
