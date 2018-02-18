@@ -119,6 +119,7 @@ exports.decorateConfig = (config) => {
  */
 const checkPrice = () => {
     let config = app.config.getConfig().hyperCryptoPrice;
+    console.log("checking price");
 
     for (let index in config.coins) {
         if (config.coins.hasOwnProperty(index)) {
@@ -158,6 +159,22 @@ const getCoinDetails = (name) => {
         }
     });
     lastUpdated = Date.now();
+};
+
+/**
+ * Update the current coin config when the hyper.js config has changed
+ */
+const updateConfig = () => {
+    let config = app.config.getConfig().hyperCryptoPrice.coins;
+
+    for (let coinName in hyperCoin.coinList) {
+        if (hyperCoin.coinList.hasOwnProperty(coinName)) {
+            if (config.indexOf(coinName) === -1) {
+                // Remove entry from the coin list if it is no longer in the hyper.js config array
+                delete hyperCoin.coinList[coinName];
+            }
+        }
+    }
 };
 
 /**
@@ -254,4 +271,15 @@ exports.decorateHyper = (Hyper, {React}) => {
             clearInterval(this.interval);
         }
     };
+};
+
+exports.middleware = (store) => (next) => (action) => {
+    switch (action.type) {
+        case 'CONFIG_RELOAD':
+            console.log('config reloaded mush');
+            updateConfig();
+            break;
+    }
+
+    next(action);
 };
