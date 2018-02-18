@@ -119,7 +119,6 @@ exports.decorateConfig = (config) => {
  */
 const checkPrice = () => {
     let config = app.config.getConfig().hyperCryptoPrice;
-    console.log("checking price");
 
     for (let index in config.coins) {
         if (config.coins.hasOwnProperty(index)) {
@@ -276,7 +275,6 @@ exports.decorateHyper = (Hyper, {React}) => {
 exports.middleware = (store) => (next) => (action) => {
     switch (action.type) {
         case 'CONFIG_RELOAD':
-            console.log('config reloaded mush');
             updateConfig();
             break;
     }
