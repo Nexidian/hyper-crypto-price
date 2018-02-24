@@ -1,4 +1,4 @@
-# hyper-crypto-price
+# hyper-crypto-price [![npm](https://img.shields.io/npm/dt/hyper-crypto-price.svg)](https://www.npmjs.com/package/hyper-crypto-price)
 
 > Crypto Price Plugin for [Hyper](https://hyper.is). Shows a configurable list of crypto coin prices.
 
